@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore the FIFA World Cup: tournament history, champions, legendary players, football rules and the 2026 edition.">
+<meta name="theme-color" content="#071b2d">
+<title>World Football Hub | World Cup Guide</title>
+<style>
+:root{--bg:#071522;--panel:#10283a;--panel2:#15364a;--text:#eef7f5;--muted:#b8c9d1;--green:#35df9b;--gold:#ffd166;--line:#294557}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+a{color:inherit}
+header{min-height:440px;padding:26px max(5vw,20px) 70px;background:linear-gradient(100deg,rgba(4,17,29,.96),rgba(4,30,38,.68)),url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1800') center/cover}
+.topbar{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:900;letter-spacing:1px;color:var(--green);font-size:1.05rem;text-decoration:none}
+nav{display:flex;flex-wrap:wrap;gap:8px}
+nav a{font-size:.9rem;text-decoration:none;color:#e4f0f2;padding:7px 10px;border-radius:8px}
+nav a:hover,nav a:focus{background:#ffffff1c;color:var(--green)}
+.hero{max-width:1160px;margin:90px auto 0}
+.eyebrow{color:var(--green);font-weight:bold;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}
+h1{font-size:clamp(2.5rem,7vw,5.4rem);line-height:1.05;max-width:800px;margin:12px 0 18px}
+.hero p{max-width:650px;color:#d3e1e5;font-size:1.12rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-block;text-decoration:none;border:1px solid var(--green);background:var(--green);color:#052117;font-weight:bold;padding:11px 17px;border-radius:9px}
+.btn.secondary{background:transparent;color:var(--text);border-color:#78909c}
+main{max-width:1160px;margin:auto;padding:30px 20px 70px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-58px;position:relative}
+.stat,.card,.content{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:21px}
+.stat strong{display:block;color:var(--green);font-size:1.8rem}
+.stat span{color:var(--muted);font-size:.92rem}
+section{margin-top:54px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}
+h2{font-size:clamp(1.65rem,4vw,2.3rem);line-height:1.2}
+.section-head p,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{padding:0;overflow:hidden}
+.card img{width:100%;height:175px;object-fit:cover;display:block}
+.card-body{padding:18px}
+.card h3{margin-bottom:7px;color:var(--green)}
+.card p{color:var(--muted)}
+.content p{margin:10px 0;color:#d7e4e8}
+.content h3{margin-top:18px;color:var(--green)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.chip{background:#1b4052;border:1px solid #31586a;border-radius:99px;padding:6px 12px;color:#dff8ef}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:440px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}
+th{color:var(--green)}
+.search{width:100%;max-width:420px;padding:12px 14px;border-radius:9px;border:1px solid var(--line);background:#091d2b;color:white;margin:12px 0 18px}
+.player-card[hidden]{display:none}
+footer{background:#04101a;border-top:1px solid var(--line);padding:35px 20px;text-align:center;color:var(--muted)}
+footer a{color:var(--green);margin:0 8px;text-decoration:none}
+small{color:var(--muted)}
+@media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.hero{margin-top:65px}.stats,.grid{grid-template-columns:1fr}.stats{margin-top:-35px}.section-head{align-items:flex-start;flex-direction:column}header{padding-bottom:60px}}
+</style>
+</head>
+<body>
+<header id="top">
+  <div class="topbar">
+    <a class="brand" href="#top">⚽ WORLD FOOTBALL HUB</a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#history">History</a><a href="#champions">Champions</a>
+      <a href="#players">Players</a><a href="#2026">2026</a><a href="#rules">Rules</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="hero">
+    <div class="eyebrow">The world's game</div>
+    <h1>Every goal has a story.</h1>
+    <p>Your guide to the FIFA World Cup: its history, unforgettable champions, legendary players and the game loved around the world.</p>
+    <div class="actions"><a class="btn" href="#history">Explore the World Cup</a><a class="btn secondary" href="#champions">Meet the champions</a></div>
+  </div>
+</header>
+<main>
+  <div class="stats" aria-label="World Cup facts">
+    <div class="stat"><strong>1930</strong><span>First men's World Cup</span></div>
+    <div class="stat"><strong>4 years</strong><span>Usual tournament cycle</span></div>
+    <div class="stat"><strong>48 teams</strong><span>Expanded 2026 format</span></div>
+  </div>
+
+  <section id="about">
+    <div class="section-head"><div><div class="eyebrow">Welcome</div><h2>Football brings the world together</h2></div></div>
+    <div class="content">
+      <p>The FIFA World Cup is an international football competition for men's national teams organised by FIFA. It is one of the world's most watched sporting events, bringing together supporters, cultures and teams from many countries.</p>
+      <p>World Football Hub is an independent educational fan website. It shares general information about the tournament, its history and the rules of football. It is not an official FIFA website and is not affiliated with FIFA.</p>
+    </div>
+  </section>
+
+  <section id="history">
+    <div class="section-head"><div><div class="eyebrow">Since 1930</div><h2>A tournament with a remarkable history</h2></div></div>
+    <div class="content">
+      <p>The first FIFA World Cup took place in Uruguay in 1930. The hosts defeated Argentina in the final. The competition grew over time and became a global sporting event. The tournament was not held in 1942 or 1946 because of the Second World War, then returned in 1950.</p>
+      <p>Across generations, the World Cup has produced memorable finals, surprising results and performances that became part of football history.</p>
+    </div>
+  </section>
+
+  <section id="champions">
+    <div class="section-head"><div><div class="eyebrow">Men's tournament</div><h2>World Cup champions</h2></div><p class="muted">Titles through the 2022 edition</p></div>
+    <div class="content table-wrap">
+      <table>
+        <thead><tr><th>Country</th><th>Titles</th><th>Most recent title</th></tr></thead>
+        <tbody>
+          <tr><td>Brazil 🇧🇷</td><td>5</td><td>2002</td></tr>
+          <tr><td>Germany 🇩🇪</td><td>4</td><td>2014</td></tr>
+          <tr><td>Italy 🇮🇹</td><td>4</td><td>2006</td></tr>
+          <tr><td>Argentina 🇦🇷</td><td>3</td><td>2022</td></tr>
+          <tr><td>France 🇫🇷</td><td>2</td><td>2018</td></tr>
+          <tr><td>Uruguay 🇺🇾</td><td>2</td><td>1950</td></tr>
+          <tr><td>England 🏴</td><td>1</td><td>1966</td></tr>
+          <tr><td>Spain 🇪🇸</td><td>1</td><td>2010</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="players">
+    <div class="section-head"><div><div class="eyebrow">Legends</div><h2>Players who shaped the story</h2></div></div>
+    <input class="search" id="playerSearch" type="search" placeholder="Search a player..." aria-label="Search players">
+    <div class="grid" id="playerGrid">
+      <article class="card player-card"><img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=700" alt="Football being played"><div class="card-body"><h3>Pelé</h3><p>Pelé won three men's World Cups with Brazil: 1958, 1962 and 1970.</p></div></article>
+      <article class="card player-card"><img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=700" alt="Football match action"><div class="card-body"><h3>Diego Maradona</h3><p>Maradona captained Argentina to the 1986 World Cup title.</p></div></article>
+      <article class="card player-card"><img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=700" alt="Football stadium"><div class="card-body"><h3>Lionel Messi</h3><p>Messi captained Argentina to victory at the 2022 World Cup.</p></div></article>
+      <article class="card player-card"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=700" alt="Football pitch"><div class="card-body"><h3>Cristiano Ronaldo</h3><p>Ronaldo has represented Portugal at multiple World Cups and is among the sport's best-known forwards.</p></div></article>
+    </div>
+  </section>
+
+  <section id="2026">
+    <div class="section-head"><div><div class="eyebrow">Expanded edition</div><h2>FIFA World Cup 2026</h2></div></div>
+    <div class="content">
+      <p>The 2026 men's FIFA World Cup is hosted by Canada, Mexico and the United States. It is the first edition with 48 teams and 104 matches, expanding the tournament from the 32-team format used from 1998 through 2022.</p>
+      <div class="chips"><span class="chip">Canada</span><span class="chip">Mexico</span><span class="chip">United States</span><span class="chip">48 teams</span><span class="chip">104 matches</span></div>
+      <p><small>For current fixtures and official tournament information, consult FIFA's official website.</small></p>
+      <a class="btn" href="https://www.fifa.com/" target="_blank" rel="noopener">Visit FIFA.com</a>
+    </div>
+  </section>
+
+  <section id="rules">
+    <div class="section-head"><div><div class="eyebrow">The basics</div><h2>Football rules in brief</h2></div></div>
+    <div class="content">
+      <ul>
+        <li>Each team has up to 11 players on the field, including a goalkeeper.</li>
+        <li>A standard senior match lasts 90 minutes: two 45-minute halves, plus added time.</li>
+        <li>The offside rule applies to attacking players in certain positions when a teammate plays the ball.</li>
+        <li>Yellow cards are cautions; a red card means dismissal.</li>
+        <li>In some knockout matches, extra time and a penalty shoot-out are used to decide the winner.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head"><div><div class="eyebrow">Get in touch</div><h2>Contact and feedback</h2></div></div>
+    <div class="content">
+      <p>Have a correction or suggestion for this educational football website? You can contact the website owner through the GitHub repository where this site is published.</p>
+      <a class="btn" href="https://github.com/mazahir745/FIFA-WORLD-CUP" target="_blank" rel="noopener">Open project on GitHub</a>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="section-head"><div><div class="eyebrow">Your information</div><h2>Privacy policy</h2></div></div>
+    <div class="content">
+      <p>This website is an informational static website. It does not ask visitors to create accounts or submit personal information through forms.</p>
+      <p>Some images are loaded from third-party image hosts. Those services may receive standard technical information, such as a visitor's IP address, when an image is requested. Their own privacy policies apply.</p>
+      <p>If analytics, advertising, or contact forms are added later, this policy should be updated to explain what data those services collect and how it is used. This page is a basic notice, not legal advice.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  <p><strong>⚽ World Football Hub</strong> · Independent educational fan website</p>
+  <p><a href="#about">About</a><a href="#contact">Contact</a><a href="#privacy">Privacy</a><a href="#top">Back to top ↑</a></p>
+  <small>Not affiliated with or endorsed by FIFA. All trademarks belong to their respective owners.</small>
+</footer>
+<script>
+const search = document.getElementById('playerSearch');
+search.addEventListener('input', () => {
+  const term = search.value.toLowerCase().trim();
+  document.querySelectorAll('.player-card').forEach(card => {
+    card.hidden = !card.innerText.toLowerCase().includes(term);
+  });
+});
+</script>
+</body>
+</html>
