@@ -1,184 +1,453 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Explore the FIFA World Cup: tournament history, champions, legendary players, football rules and the 2026 edition.">
-<meta name="theme-color" content="#071b2d">
-<title>World Football Hub | World Cup Guide</title>
+<title>GoalRush | Football World</title>
 <style>
-:root{--bg:#071522;--panel:#10283a;--panel2:#15364a;--text:#eef7f5;--muted:#b8c9d1;--green:#35df9b;--gold:#ffd166;--line:#294557}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
-a{color:inherit}
-header{min-height:440px;padding:26px max(5vw,20px) 70px;background:linear-gradient(100deg,rgba(4,17,29,.96),rgba(4,30,38,.68)),url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1800') center/cover}
-.topbar{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{font-weight:900;letter-spacing:1px;color:var(--green);font-size:1.05rem;text-decoration:none}
-nav{display:flex;flex-wrap:wrap;gap:8px}
-nav a{font-size:.9rem;text-decoration:none;color:#e4f0f2;padding:7px 10px;border-radius:8px}
-nav a:hover,nav a:focus{background:#ffffff1c;color:var(--green)}
-.hero{max-width:1160px;margin:90px auto 0}
-.eyebrow{color:var(--green);font-weight:bold;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}
-h1{font-size:clamp(2.5rem,7vw,5.4rem);line-height:1.05;max-width:800px;margin:12px 0 18px}
-.hero p{max-width:650px;color:#d3e1e5;font-size:1.12rem}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.btn{display:inline-block;text-decoration:none;border:1px solid var(--green);background:var(--green);color:#052117;font-weight:bold;padding:11px 17px;border-radius:9px}
-.btn.secondary{background:transparent;color:var(--text);border-color:#78909c}
-main{max-width:1160px;margin:auto;padding:30px 20px 70px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-58px;position:relative}
-.stat,.card,.content{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:21px}
-.stat strong{display:block;color:var(--green);font-size:1.8rem}
-.stat span{color:var(--muted);font-size:.92rem}
-section{margin-top:54px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}
-h2{font-size:clamp(1.65rem,4vw,2.3rem);line-height:1.2}
-.section-head p,.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{padding:0;overflow:hidden}
-.card img{width:100%;height:175px;object-fit:cover;display:block}
-.card-body{padding:18px}
-.card h3{margin-bottom:7px;color:var(--green)}
-.card p{color:var(--muted)}
-.content p{margin:10px 0;color:#d7e4e8}
-.content h3{margin-top:18px;color:var(--green)}
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
-.chip{background:#1b4052;border:1px solid #31586a;border-radius:99px;padding:6px 12px;color:#dff8ef}
-.table-wrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:440px}
-th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}
-th{color:var(--green)}
-.search{width:100%;max-width:420px;padding:12px 14px;border-radius:9px;border:1px solid var(--line);background:#091d2b;color:white;margin:12px 0 18px}
-.player-card[hidden]{display:none}
-footer{background:#04101a;border-top:1px solid var(--line);padding:35px 20px;text-align:center;color:var(--muted)}
-footer a{color:var(--green);margin:0 8px;text-decoration:none}
-small{color:var(--muted)}
-@media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.hero{margin-top:65px}.stats,.grid{grid-template-columns:1fr}.stats{margin-top:-35px}.section-head{align-items:flex-start;flex-direction:column}header{padding-bottom:60px}}
+:root {
+  --bg:#07111f; --panel:#101e30; --panel2:#162840;
+  --text:#f4f7fb; --muted:#a8b5c7; --orange:#ff762e;
+  --green:#42d392; --border:#263b54;
+}
+body.light {
+  --bg:#edf2f8; --panel:#ffffff; --panel2:#e4ebf4;
+  --text:#142238; --muted:#52647b; --border:#d0dbe8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+font-family:Arial,Helvetica,sans-serif;transition:.2s}
+header{position:sticky;top:0;z-index:10;background:var(--bg);
+border-bottom:1px solid var(--border)}
+.nav{max-width:1200px;margin:auto;padding:15px 20px;
+display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:900;color:var(--orange)}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:bold}
+nav a:hover{color:var(--orange)}
+button,.btn{border:0;border-radius:9px;padding:11px 15px;
+background:var(--orange);color:white;font-weight:bold;cursor:pointer}
+button:hover,.btn:hover{filter:brightness(1.1)}
+button.secondary{background:var(--panel2);color:var(--text);
+border:1px solid var(--border)}
+.container{max-width:1200px;margin:auto;padding:25px 20px}
+.hero{min-height:370px;border-radius:20px;padding:55px 35px;
+display:flex;align-items:center;background:
+linear-gradient(90deg,rgba(3,10,20,.95),rgba(3,10,20,.35)),
+url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=85") center/cover}
+.hero-content{max-width:650px}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:0 0 15px}
+.hero h1 span{color:var(--orange)}
+.hero p{color:#e0e7ef;line-height:1.7;font-size:17px}
+.section{margin-top:45px}
+.section-heading{display:flex;align-items:center;justify-content:space-between;
+gap:12px;flex-wrap:wrap;margin-bottom:18px}
+h2{font-size:26px;margin:0}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--border);
+border-radius:15px;padding:19px}
+.card h3{margin:7px 0}
+.card p{color:var(--muted);line-height:1.5}
+.competition{font-size:38px}
+.player-card{display:flex;flex-direction:column;gap:8px}
+.player-card .number{font-size:28px;font-weight:900;color:var(--orange)}
+.player-card button{align-self:flex-start}
+input,select{width:100%;padding:12px;border-radius:9px;
+border:1px solid var(--border);background:var(--panel2);
+color:var(--text);margin:8px 0 14px}
+.game-panel{background:var(--panel);border:1px solid var(--border);
+border-radius:15px;padding:20px}
+.game-panel button{margin:5px 4px 5px 0}
+.result{min-height:28px;color:var(--green);font-weight:bold;margin-top:12px}
+.pitch{background:linear-gradient(90deg,#14643d,#19804b);
+border:5px solid white;border-radius:12px;padding:18px;
+min-height:280px;display:grid;grid-template-columns:repeat(4,1fr);
+gap:10px;align-items:center}
+.slot{background:rgba(255,255,255,.16);border:1px dashed white;
+border-radius:8px;padding:10px;text-align:center;color:white;min-height:55px}
+footer{margin-top:55px;padding:25px;text-align:center;
+border-top:1px solid var(--border);color:var(--muted)}
+.small{font-size:13px;color:var(--muted)}
+@media(max-width:600px){
+ .hero{padding:30px 20px;min-height:330px}
+ .nav{justify-content:center}
+ nav{justify-content:center}
+ .pitch{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
 <body>
-<header id="top">
-  <div class="topbar">
-    <a class="brand" href="#top">⚽ WORLD FOOTBALL HUB</a>
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a><a href="#history">History</a><a href="#champions">Champions</a>
-      <a href="#players">Players</a><a href="#2026">2026</a><a href="#rules">Rules</a>
-      <a href="#contact">Contact</a>
+
+<header>
+  <div class="nav">
+    <div class="logo">⚽ GOALRUSH</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#competitions">Competitions</a>
+      <a href="#players">Players</a>
+      <a href="#gaming">Gaming Zone</a>
+      <a href="#dreamteam">Dream Team</a>
     </nav>
-  </div>
-  <div class="hero">
-    <div class="eyebrow">The world's game</div>
-    <h1>Every goal has a story.</h1>
-    <p>Your guide to the FIFA World Cup: its history, unforgettable champions, legendary players and the game loved around the world.</p>
-    <div class="actions"><a class="btn" href="#history">Explore the World Cup</a><a class="btn secondary" href="#champions">Meet the champions</a></div>
+    <button class="secondary" onclick="toggleTheme()">☀️ / 🌙</button>
   </div>
 </header>
-<main>
-  <div class="stats" aria-label="World Cup facts">
-    <div class="stat"><strong>1930</strong><span>First men's World Cup</span></div>
-    <div class="stat"><strong>4 years</strong><span>Usual tournament cycle</span></div>
-    <div class="stat"><strong>48 teams</strong><span>Expanded 2026 format</span></div>
+
+<main class="container">
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p>THE WORLD OF FOOTBALL</p>
+    <h1>LIVE YOUR <span>FOOTBALL</span> DREAM</h1>
+    <p>Explore football stars, discover competitions and challenge
+    yourself with exciting football mini-games.</p>
+    <a class="btn" href="#gaming">PLAY GAMES</a>
   </div>
+</section>
 
-  <section id="about">
-    <div class="section-head"><div><div class="eyebrow">Welcome</div><h2>Football brings the world together</h2></div></div>
-    <div class="content">
-      <p>The FIFA World Cup is an international football competition for men's national teams organised by FIFA. It is one of the world's most watched sporting events, bringing together supporters, cultures and teams from many countries.</p>
-      <p>World Football Hub is an independent educational fan website. It shares general information about the tournament, its history and the rules of football. It is not an official FIFA website and is not affiliated with FIFA.</p>
-    </div>
-  </section>
+<section class="section" id="competitions">
+  <div class="section-heading">
+    <h2>🏆 Popular Competitions</h2>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="competition">🌍</div>
+      <h3>FIFA World Cup</h3>
+      <p>International football's biggest tournament.</p>
+      <a class="btn" href="https://www.fifa.com/" target="_blank" rel="noopener">Explore</a>
+    </article>
+    <article class="card">
+      <div class="competition">⭐</div>
+      <h3>UEFA Champions League</h3>
+      <p>Europe's top club football competition.</p>
+      <a class="btn" href="https://www.uefa.com/uefachampionsleague/" target="_blank" rel="noopener">Explore</a>
+    </article>
+    <article class="card">
+      <div class="competition">🏴</div>
+      <h3>Premier League</h3>
+      <p>Follow English top-flight football.</p>
+      <a class="btn" href="https://www.premierleague.com/" target="_blank" rel="noopener">Explore</a>
+    </article>
+    <article class="card">
+      <div class="competition">🇪🇸</div>
+      <h3>La Liga</h3>
+      <p>Discover Spanish league football.</p>
+      <a class="btn" href="https://www.laliga.com/" target="_blank" rel="noopener">Explore</a>
+    </article>
+  </div>
+</section>
 
-  <section id="history">
-    <div class="section-head"><div><div class="eyebrow">Since 1930</div><h2>A tournament with a remarkable history</h2></div></div>
-    <div class="content">
-      <p>The first FIFA World Cup took place in Uruguay in 1930. The hosts defeated Argentina in the final. The competition grew over time and became a global sporting event. The tournament was not held in 1942 or 1946 because of the Second World War, then returned in 1950.</p>
-      <p>Across generations, the World Cup has produced memorable finals, surprising results and performances that became part of football history.</p>
-    </div>
-  </section>
+<section class="section" id="players">
+  <div class="section-heading">
+    <h2>🌟 Football Players</h2>
+    <span class="muted" id="playerCount"></span>
+  </div>
+  <input id="playerSearch" placeholder="Search a player or club..."
+         oninput="renderPlayers()">
+  <div class="grid" id="playerList"></div>
+</section>
 
-  <section id="champions">
-    <div class="section-head"><div><div class="eyebrow">Men's tournament</div><h2>World Cup champions</h2></div><p class="muted">Titles through the 2022 edition</p></div>
-    <div class="content table-wrap">
-      <table>
-        <thead><tr><th>Country</th><th>Titles</th><th>Most recent title</th></tr></thead>
-        <tbody>
-          <tr><td>Brazil 🇧🇷</td><td>5</td><td>2002</td></tr>
-          <tr><td>Germany 🇩🇪</td><td>4</td><td>2014</td></tr>
-          <tr><td>Italy 🇮🇹</td><td>4</td><td>2006</td></tr>
-          <tr><td>Argentina 🇦🇷</td><td>3</td><td>2022</td></tr>
-          <tr><td>France 🇫🇷</td><td>2</td><td>2018</td></tr>
-          <tr><td>Uruguay 🇺🇾</td><td>2</td><td>1950</td></tr>
-          <tr><td>England 🏴</td><td>1</td><td>1966</td></tr>
-          <tr><td>Spain 🇪🇸</td><td>1</td><td>2010</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+<section class="section" id="gaming">
+  <div class="section-heading">
+    <h2>🎮 Gaming Zone</h2>
+    <p class="muted">Play football challenges!</p>
+  </div>
+  <div class="grid">
+    <article class="game-panel">
+      <h3>⚽ Penalty Shootout</h3>
+      <p class="muted">Choose where to shoot.</p>
+      <button onclick="penalty('Left')">⬅ Left</button>
+      <button onclick="penalty('Centre')">⬆ Centre</button>
+      <button onclick="penalty('Right')">➡ Right</button>
+      <div class="result" id="penaltyResult">Your score: 0</div>
+    </article>
 
-  <section id="players">
-    <div class="section-head"><div><div class="eyebrow">Legends</div><h2>Players who shaped the story</h2></div></div>
-    <input class="search" id="playerSearch" type="search" placeholder="Search a player..." aria-label="Search players">
-    <div class="grid" id="playerGrid">
-      <article class="card player-card"><img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=700" alt="Football being played"><div class="card-body"><h3>Pelé</h3><p>Pelé won three men's World Cups with Brazil: 1958, 1962 and 1970.</p></div></article>
-      <article class="card player-card"><img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=700" alt="Football match action"><div class="card-body"><h3>Diego Maradona</h3><p>Maradona captained Argentina to the 1986 World Cup title.</p></div></article>
-      <article class="card player-card"><img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=700" alt="Football stadium"><div class="card-body"><h3>Lionel Messi</h3><p>Messi captained Argentina to victory at the 2022 World Cup.</p></div></article>
-      <article class="card player-card"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=700" alt="Football pitch"><div class="card-body"><h3>Cristiano Ronaldo</h3><p>Ronaldo has represented Portugal at multiple World Cups and is among the sport's best-known forwards.</p></div></article>
-    </div>
-  </section>
+    <article class="game-panel">
+      <h3>🎯 Free Kick Challenge</h3>
+      <p class="muted">Choose your shot direction.</p>
+      <button onclick="freeKick('Left')">Left</button>
+      <button onclick="freeKick('Centre')">Centre</button>
+      <button onclick="freeKick('Right')">Right</button>
+      <div class="result" id="freeKickResult">Goals: 0</div>
+    </article>
 
-  <section id="2026">
-    <div class="section-head"><div><div class="eyebrow">Expanded edition</div><h2>FIFA World Cup 2026</h2></div></div>
-    <div class="content">
-      <p>The 2026 men's FIFA World Cup is hosted by Canada, Mexico and the United States. It is the first edition with 48 teams and 104 matches, expanding the tournament from the 32-team format used from 1998 through 2022.</p>
-      <div class="chips"><span class="chip">Canada</span><span class="chip">Mexico</span><span class="chip">United States</span><span class="chip">48 teams</span><span class="chip">104 matches</span></div>
-      <p><small>For current fixtures and official tournament information, consult FIFA's official website.</small></p>
-      <a class="btn" href="https://www.fifa.com/" target="_blank" rel="noopener">Visit FIFA.com</a>
-    </div>
-  </section>
+    <article class="game-panel">
+      <h3>🧠 Guess the Footballer</h3>
+      <p id="clue">This player is from Argentina.</p>
+      <input id="guessInput" placeholder="Enter player name">
+      <button onclick="checkGuess()">Submit Answer</button>
+      <button class="secondary" onclick="newGuess()">New Question</button>
+      <div class="result" id="guessResult"></div>
+    </article>
 
-  <section id="rules">
-    <div class="section-head"><div><div class="eyebrow">The basics</div><h2>Football rules in brief</h2></div></div>
-    <div class="content">
-      <ul>
-        <li>Each team has up to 11 players on the field, including a goalkeeper.</li>
-        <li>A standard senior match lasts 90 minutes: two 45-minute halves, plus added time.</li>
-        <li>The offside rule applies to attacking players in certain positions when a teammate plays the ball.</li>
-        <li>Yellow cards are cautions; a red card means dismissal.</li>
-        <li>In some knockout matches, extra time and a penalty shoot-out are used to decide the winner.</li>
-      </ul>
-    </div>
-  </section>
+    <article class="game-panel">
+      <h3>❓ Football Quiz</h3>
+      <p id="quizQuestion">Loading question...</p>
+      <div id="quizOptions"></div>
+      <div class="result" id="quizResult"></div>
+      <button class="secondary" onclick="nextQuiz()">Next Question</button>
+    </article>
+  </div>
+</section>
 
-  <section id="contact">
-    <div class="section-head"><div><div class="eyebrow">Get in touch</div><h2>Contact and feedback</h2></div></div>
-    <div class="content">
-      <p>Have a correction or suggestion for this educational football website? You can contact the website owner through the GitHub repository where this site is published.</p>
-      <a class="btn" href="https://github.com/mazahir745/FIFA-WORLD-CUP" target="_blank" rel="noopener">Open project on GitHub</a>
-    </div>
-  </section>
+<section class="section" id="dreamteam">
+  <div class="section-heading">
+    <h2>👑 Dream Team Builder</h2>
+  </div>
+  <div class="card">
+    <p>Select players to build your dream team. Choose 11 different players.</p>
+    <label for="formation">Formation</label>
+    <select id="formation" onchange="drawTeam()">
+      <option value="4-3-3">4-3-3</option>
+      <option value="4-4-2">4-4-2</option>
+      <option value="3-5-2">3-5-2</option>
+    </select>
+    <label for="teamPlayer">Choose a player</label>
+    <select id="teamPlayer"></select>
+    <button onclick="addToTeam()">Add to Team</button>
+    <button class="secondary" onclick="clearTeam()">Clear Team</button>
+    <p class="muted" id="teamCount">0 / 11 players selected</p>
+    <div class="pitch" id="pitch"></div>
+    <div id="teamNames" class="small"></div>
+  </div>
+</section>
 
-  <section id="privacy">
-    <div class="section-head"><div><div class="eyebrow">Your information</div><h2>Privacy policy</h2></div></div>
-    <div class="content">
-      <p>This website is an informational static website. It does not ask visitors to create accounts or submit personal information through forms.</p>
-      <p>Some images are loaded from third-party image hosts. Those services may receive standard technical information, such as a visitor's IP address, when an image is requested. Their own privacy policies apply.</p>
-      <p>If analytics, advertising, or contact forms are added later, this policy should be updated to explain what data those services collect and how it is used. This page is a basic notice, not legal advice.</p>
-    </div>
-  </section>
+<section class="section">
+  <div class="section-heading">
+    <h2>❤️ Your Favourite Players</h2>
+  </div>
+  <div class="grid" id="favourites"></div>
+</section>
 </main>
+
 <footer>
-  <p><strong>⚽ World Football Hub</strong> · Independent educational fan website</p>
-  <p><a href="#about">About</a><a href="#contact">Contact</a><a href="#privacy">Privacy</a><a href="#top">Back to top ↑</a></p>
-  <small>Not affiliated with or endorsed by FIFA. All trademarks belong to their respective owners.</small>
+  <div class="logo">⚽ GOALRUSH</div>
+  <p>Made for football fans. Play, explore and enjoy!</p>
+  <p class="small">This is a fan-made demo website. It is not affiliated with FIFA or any football league.</p>
 </footer>
+
 <script>
-const search = document.getElementById('playerSearch');
-search.addEventListener('input', () => {
-  const term = search.value.toLowerCase().trim();
-  document.querySelectorAll('.player-card').forEach(card => {
-    card.hidden = !card.innerText.toLowerCase().includes(term);
-  });
-});
+const players = [
+ {name:"Lionel Messi",club:"Inter Miami",country:"Argentina",number:10},
+ {name:"Cristiano Ronaldo",club:"Al Nassr",country:"Portugal",number:7},
+ {name:"Kylian Mbappe",club:"Real Madrid",country:"France",number:10},
+ {name:"Erling Haaland",club:"Manchester City",country:"Norway",number:9},
+ {name:"Jude Bellingham",club:"Real Madrid",country:"England",number:5},
+ {name:"Vinicius Junior",club:"Real Madrid",country:"Brazil",number:7},
+ {name:"Mohamed Salah",club:"Liverpool",country:"Egypt",number:11},
+ {name:"Harry Kane",club:"Bayern Munich",country:"England",number:9},
+ {name:"Kevin De Bruyne",club:"Napoli",country:"Belgium",number:17},
+ {name:"Lamine Yamal",club:"Barcelona",country:"Spain",number:10},
+ {name:"Pedri",club:"Barcelona",country:"Spain",number:8},
+ {name:"Bukayo Saka",club:"Arsenal",country:"England",number:7},
+ {name:"Phil Foden",club:"Manchester City",country:"England",number:47},
+ {name:"Robert Lewandowski",club:"Barcelona",country:"Poland",number:9},
+ {name:"Virgil van Dijk",club:"Liverpool",country:"Netherlands",number:4},
+ {name:"Son Heung-min",club:"LAFC",country:"South Korea",number:7},
+ {name:"Bruno Fernandes",club:"Manchester United",country:"Portugal",number:8},
+ {name:"Rodri",club:"Manchester City",country:"Spain",number:16},
+ {name:"Luka Modric",club:"AC Milan",country:"Croatia",number:14},
+ {name:"Antoine Griezmann",club:"Atletico Madrid",country:"France",number:7},
+ {name:"Rafael Leao",club:"AC Milan",country:"Portugal",number:10},
+ {name:"Federico Valverde",club:"Real Madrid",country:"Uruguay",number:8},
+ {name:"Declan Rice",club:"Arsenal",country:"England",number:41},
+ {name:"Achraf Hakimi",club:"PSG",country:"Morocco",number:2}
+];
+
+let favourites = [];
+let penaltyScore = 0;
+let freeKickScore = 0;
+let team = [];
+let currentGuess = 0;
+let quizIndex = 0;
+
+function toggleTheme(){
+ document.body.classList.toggle("light");
+}
+
+function renderPlayers(){
+ const search = document.getElementById("playerSearch").value.toLowerCase();
+ const filtered = players.filter(p =>
+   p.name.toLowerCase().includes(search) ||
+   p.club.toLowerCase().includes(search) ||
+   p.country.toLowerCase().includes(search)
+ );
+ document.getElementById("playerCount").textContent =
+   filtered.length + " players shown";
+ document.getElementById("playerList").innerHTML = filtered.map(p => `
+  <article class="card player-card">
+   <div class="number">#${p.number}</div>
+   <h3>${p.name}</h3>
+   <p>${p.club}<br>${p.country}</p>
+   <button class="secondary" onclick="toggleFavourite('${p.name}')">
+    ${favourites.includes(p.name) ? "❤️ Saved" : "♡ Add Favourite"}
+   </button>
+  </article>
+ `).join("");
+}
+
+function toggleFavourite(name){
+ if(favourites.includes(name)){
+   favourites = favourites.filter(n => n !== name);
+ }else{
+   favourites.push(name);
+ }
+ renderPlayers();
+ renderFavourites();
+}
+
+function renderFavourites(){
+ const box = document.getElementById("favourites");
+ if(!favourites.length){
+   box.innerHTML = '<p class="muted">You have not added any favourites yet.</p>';
+   return;
+ }
+ box.innerHTML = favourites.map(name => {
+   const p = players.find(x => x.name === name);
+   return `<article class="card"><h3>❤️ ${p.name}</h3>
+   <p>${p.club} · ${p.country}</p>
+   <button class="secondary" onclick="toggleFavourite('${p.name}')">Remove</button></article>`;
+ }).join("");
+}
+
+function penalty(direction){
+ const keeper = ["Left","Centre","Right"][Math.floor(Math.random()*3)];
+ if(direction === keeper){
+   document.getElementById("penaltyResult").textContent =
+     "🧤 Saved! The goalkeeper guessed your shot. Score: " + penaltyScore;
+ }else{
+   penaltyScore++;
+   document.getElementById("penaltyResult").textContent =
+     "⚽ GOAL! Your score: " + penaltyScore;
+ }
+}
+
+function freeKick(direction){
+ const wall = Math.random();
+ const keeper = ["Left","Centre","Right"][Math.floor(Math.random()*3)];
+ const result = document.getElementById("freeKickResult");
+ if(wall < 0.25){
+   result.textContent = "🧱 The ball hit the wall! Goals: " + freeKickScore;
+ }else if(direction === keeper){
+   result.textContent = "🧤 The goalkeeper saved it! Goals: " + freeKickScore;
+ }else{
+   freeKickScore++;
+   result.textContent = "🚀 AMAZING FREE KICK! Goals: " + freeKickScore;
+ }
+}
+
+const guesses = [
+ {clue:"This Argentine legend has won the FIFA World Cup.",answer:"lionel messi"},
+ {clue:"This Portuguese star is famous for the number 7.",answer:"cristiano ronaldo"},
+ {clue:"This Norwegian striker plays for Manchester City.",answer:"erling haaland"},
+ {clue:"This French forward plays for Real Madrid.",answer:"kylian mbappe"},
+ {clue:"This English midfielder plays for Real Madrid.",answer:"jude bellingham"}
+];
+
+function newGuess(){
+ currentGuess = Math.floor(Math.random()*guesses.length);
+ document.getElementById("clue").textContent = guesses[currentGuess].clue;
+ document.getElementById("guessInput").value = "";
+ document.getElementById("guessResult").textContent = "";
+}
+
+function checkGuess(){
+ const answer = document.getElementById("guessInput").value.trim().toLowerCase();
+ if(!answer){
+   document.getElementById("guessResult").textContent = "Enter a player name first.";
+   return;
+ }
+ document.getElementById("guessResult").textContent =
+  answer === guesses[currentGuess].answer
+   ? "✅ Correct! Great job!"
+   : "❌ Not quite. Try again!";
+}
+
+const quizzes = [
+ {q:"How many players does one team have on the pitch at the start of a normal match?",
+  options:["9","10","11","12"],correct:2},
+ {q:"Which country won the 2022 FIFA World Cup?",
+  options:["France","Argentina","Brazil","Germany"],correct:1},
+ {q:"What is the usual length of a football match, excluding added time?",
+  options:["60 minutes","80 minutes","90 minutes","100 minutes"],correct:2},
+ {q:"Which card means a player is sent off?",
+  options:["Blue","Green","Yellow","Red"],correct:3},
+ {q:"What is the name of the player who protects the goal?",
+  options:["Striker","Goalkeeper","Winger","Captain"],correct:1}
+];
+
+function showQuiz(){
+ const q = quizzes[quizIndex];
+ document.getElementById("quizQuestion").textContent =
+   (quizIndex+1) + ". " + q.q;
+ document.getElementById("quizResult").textContent = "";
+ document.getElementById("quizOptions").innerHTML =
+  q.options.map((option,i) =>
+   `<button class="secondary" onclick="answerQuiz(${i})">${option}</button>`
+  ).join("");
+}
+
+function answerQuiz(index){
+ const q = quizzes[quizIndex];
+ document.getElementById("quizResult").textContent =
+  index === q.correct ? "✅ Correct answer!" : "❌ Incorrect. Correct answer: " + q.options[q.correct];
+}
+
+function nextQuiz(){
+ quizIndex = (quizIndex + 1) % quizzes.length;
+ showQuiz();
+}
+
+function drawTeam(){
+ const formation = document.getElementById("formation").value;
+ const count = formation.split("-").reduce((a,b)=>a+Number(b),1);
+ const positions = ["GK"];
+ formation.split("-").forEach((line,i)=>{
+   for(let n=0;n<Number(line);n++){
+     positions.push(["DEF","MID","FWD"][i]);
+   }
+ });
+ document.getElementById("pitch").innerHTML = positions.map((pos,i)=>
+   `<div class="slot">${pos}<br>${team[i] || "Empty"}</div>`
+ ).join("");
+ document.getElementById("teamCount").textContent =
+   team.length + " / " + count + " players selected";
+ document.getElementById("teamNames").textContent =
+   team.length ? "Selected: " + team.join(", ") : "Your team is empty.";
+}
+
+function addToTeam(){
+ const name = document.getElementById("teamPlayer").value;
+ const max = 11;
+ if(team.includes(name)){
+   alert("This player is already in your team.");
+   return;
+ }
+ if(team.length >= max){
+   alert("Your team already has 11 players.");
+   return;
+ }
+ team.push(name);
+ drawTeam();
+}
+
+function clearTeam(){
+ team = [];
+ drawTeam();
+}
+
+function setupTeamOptions(){
+ document.getElementById("teamPlayer").innerHTML =
+  players.map(p=>`<option value="${p.name}">${p.name} — ${p.club}</option>`).join("");
+}
+
+renderPlayers();
+renderFavourites();
+setupTeamOptions();
+drawTeam();
+newGuess();
+showQuiz();
 </script>
 </body>
 </html>
